@@ -12,7 +12,7 @@ const questions = [
     },
     {
         type:"input",
-        message:"Type a descritpion of your project",
+        message:"Type a descritpion of your project:",
         name:"projectDescription"
 
     },
@@ -23,7 +23,7 @@ const questions = [
     },
     {
         type:"input",
-        message:"Provide the relative path to your screenshot",
+        message:"Provide the relative path to your screenshot:",
         name:"projectImage"
     },
     {
@@ -39,7 +39,7 @@ const questions = [
     },
     {
         type:"input",
-        message:"What are the features of your project",
+        message:"What are the features of your project?",
         name:"projectFeatures"
     },
     {

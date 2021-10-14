@@ -6,10 +6,10 @@ function renderLicenseBadge(license) {
     return "";
   }
   else if(license == "MIT"){
-    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+    return `![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)`
   }
   else{
-    return `[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)`;
+    return `![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)`;
   }
 
 }
@@ -40,11 +40,10 @@ function renderLicenseSection(license) {
     return ``;
   }
   else if(license == "MIT"){
-    return `
-    ## License\n
-    MIT License\n
-    ${licenseBadge}\n
-    ${licenseLink}\n
+    return `## License\n
+MIT License\n
+${licenseBadge}\n
+[Click here for more information about this license](${licenseLink})\n
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -66,11 +65,10 @@ SOFTWARE.
 \n`;
   }
   else{
-    return `
-    ## License\n
-    ISC License\n
-    ${licenseBadge}\n
-    ${licenseLink}\n
+    return `## License\n
+ISC License\n
+${licenseBadge}\n
+[Click here for more information about this license](${licenseLink})\n
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -97,6 +95,11 @@ function generateMarkdown(data) {
   return `
   # <${titleSection}>\n
   ## Description\n ${data.projectDescription}\n
+  ## Table of contents\n
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Credits](#credits)
+  - [License](#license)\n
   ## Instalation\n The page can be accessed by clikcing [this link](${data.projectURL})\n
   ## Usage\n Below is a screenshot of the page\n ![a screenshot of my page](${data.projectImage})\n
   ## Credits\n Credits go to ${data.projectCreds}\n
