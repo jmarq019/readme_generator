@@ -41,10 +41,10 @@ function renderLicenseSection(license) {
   }
   else if(license == "MIT"){
     return `
-    ##License\n
-    MIT License
-    ${licenseBadge}
-    ${licenseLink}
+    ## License\n
+    MIT License\n
+    ${licenseBadge}\n
+    ${licenseLink}\n
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -63,14 +63,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-    `;
+\n`;
   }
   else{
     return `
-    ##License\n
-    ISC License
-    ${licenseBadge}
-    ${licenseLink}
+    ## License\n
+    ISC License\n
+    ${licenseBadge}\n
+    ${licenseLink}\n
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -82,8 +82,8 @@ AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
 INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
 LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.`
-
+PERFORMANCE OF THIS SOFTWARE.
+\n`
   };
 
 }
@@ -92,19 +92,18 @@ PERFORMANCE OF THIS SOFTWARE.`
 function generateMarkdown(data) {
 
   let licenseSection = renderLicenseSection(data.projectLicense);
-
+  let titleSection = data.projectTitle.split(' ').join('_');;
 
   return `
-  # <${data.title}>
-  #<${data.projectTitle}>
-  ##Description\n ${data.projectDescription}
-  ##Instalation\n The page can be accessed by clikcing [this link](${data.projectURL})
-  ##Usage\n Below is a screenshot of the page\n ![a screenshot of my page](${data.projectImage})
-  ##Credits\n Credits go to ${data.projectCreds}
-  ${licenseSection}
-  ##Features\n ${data.projectFeatures}
-  ##How to contribute\n ${data.projectContribute}
-  ##Tests\n ${data.projectTests}
+  # <${titleSection}>\n
+  ## Description\n ${data.projectDescription}\n
+  ## Instalation\n The page can be accessed by clikcing [this link](${data.projectURL})\n
+  ## Usage\n Below is a screenshot of the page\n ![a screenshot of my page](${data.projectImage})\n
+  ## Credits\n Credits go to ${data.projectCreds}\n
+  ${licenseSection}\n
+  ## Features\n ${data.projectFeatures}\n
+  ## How to contribute\n ${data.projectContribute}\n
+  ## Tests\n ${data.projectTests}
   `;
 }
 
